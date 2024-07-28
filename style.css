@@ -1,22 +1,51 @@
+/* 全体のスタイル設定 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, #ff7e5f, #012ba0); /* 青色と赤色のグラデーション */
     color: #333;
+    overflow-x: hidden;
 }
 
+/* ヘッダーとセクションのスタイル設定 */
 header, section {
+    min-height: 100vh; /* 各セクションが一画面サイズになるように設定 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    margin: 20px auto;
+    margin: 0 auto;
     max-width: 800px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
+/* ヘッダーと次のセクションの間に余白 */
+header {
+    margin-bottom: 40px;
+}
+
+/* 各セクションの間に余白 */
+section {
+    margin-bottom: 40px;
+}
+
+/* ヘッダー内のh1タグのスタイル設定 */
+header h1 {
+    color: #2e8b57; /* 緑色 */
+    font-size: 2.5em;
+    margin: 0;
+    padding: 20px 0;
+}
+
+/* セクション内のh1タグのスタイル設定 */
 h1 {
     color: #2e8b57; /* 緑色 */
     text-align: center;
@@ -25,11 +54,22 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* 画像のスタイル設定 */
+img {
+    width: 50%; /* 画像サイズを小さく*/
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* リストのスタイル設定 */
 ul {
     list-style: none;
     padding: 0;
 }
 
+/* リストアイテムのスタイル設定 */
 ul li {
     background: #e0f7ea;
     margin: 5px 0;
@@ -38,6 +78,7 @@ ul li {
     border-radius: 4px;
 }
 
+/* パラグラフのスタイル設定 */
 p {
     background: #e0f7ea;
     padding: 10px;
@@ -45,10 +86,14 @@ p {
     border-radius: 4px;
 }
 
+/* モバイル向けのスタイル設定 */
 @media (max-width: 600px) {
     header, section {
         padding: 15px;
-        margin: 10px;
+    }
+    
+    header h1 {
+        font-size: 2em;
     }
     
     h1 {
@@ -57,5 +102,28 @@ p {
     
     ul li, p {
         font-size: 1em;
+    }
+    
+    img {
+        margin: 10px 0;
+    }
+}
+
+/* セクションの青い線のアニメーション */
+.fade-in::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: #0000ff; /* 青色 */
+    animation: slide-in 1s forwards;
+}
+
+/* 青い線が走るアニメーション */
+@keyframes slide-in {
+    to {
+        left: 100%;
     }
 }
